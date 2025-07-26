@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Smoor Bakery Survey</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #eae8e8;
+      padding: 20px;
+    }
+    .survey-container {
+      background-color: #ffffff;
+      max-width: 500px;
+      margin: auto;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #8b4b2d;
+      text-align: center;
+    }
+    label {
+      margin-top: 10px;
+      display: block;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+    input[type="submit"] {
+      background-color: #8b4b2d;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    input[type="submit"]:hover {
+      background-color: #a85f3c;
+    }
+    .thank-you {
+      text-align: center;
+      font-size: 18px;
+      color: green;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="survey-container">
+  <h2>Smoor Bakery Feedback</h2>
+  <form id="surveyForm" onsubmit="showThankYou(event)">
+    <label for="name">Your Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Your Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label>Favorite Product Type:</label>
+    <input type="radio" name="product" value="Cakes"> Cakes
+    <input type="radio" name="product" value="Chocolates"> Chocolates
+    <input type="radio" name="product" value="Pastries"> Pastries
+
+    <label for="rating">How would you rate your experience?</label>
+    <select id="rating" name="rating" required>
+      <option value="">--Select--</option>
+      <option value="Excellent">Excellent</option>
+      <option value="Good">Good</option>
+      <option value="Average">Average</option>
+      <option value="Poor">Poor</option>
+    </select>
+
+    <label for="feedback">Your Feedback:</label>
+    <textarea id="feedback" name="feedback" rows="4" placeholder="Write your feedback here..." required></textarea>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <div class="thank-you" id="thankYouMessage">
+    <p>🎉 Thank you for your feedback! 🍰</p>
+  </div>
+</div>
+
+<script>
+  function showThankYou(event) {
+    event.preventDefault(); // prevent page reload
+    document.getElementById("surveyForm").style.display = "none";
+    document.getElementById("thankYouMessage").style.display = "block";
+  }
+</script>
+
+</body>
+</html>
